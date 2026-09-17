@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="960" viewBox="0 0 1400 960" role="img" aria-label="A note for an off-limits box gets through when approval is the only check. A separate permission rule blocks it while allowing a legitimate note."><rect width="1400" height="960" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="960" viewBox="0 0 1400 960" role="img" aria-label="AI agents need permission checks: a signed request to a restricted resource executes with approval alone; independent policy blocks it and permits an authorized request."><rect width="1400" height="960" fill="white"/>
 <style>text{font-family:Chalkboard,"Comic Sans MS",cursive}.small{font-family:Arial,Helvetica,sans-serif}</style>
-<text x="65" y="93" font-size="57" fill="#242424" class="pen">What stops a bad approval?</text>
-<text x="69" y="146" font-size="27" fill="#626262" class="pen">Try to put a note in an off-limits box. Force approval to say yes.</text>
+<text x="65" y="93" font-size="53" fill="#242424" class="pen">AI agents need permission checks</text>
+<text x="69" y="146" font-size="27" fill="#626262" class="pen">A signed request targets a restricted resource. Force approval to YES.</text>
 <text x="69" y="227" font-size="34" fill="#242424" class="pen">1. Approval only</text>
 <path d="M72 240 Q220 246 365 238" stroke="#ad4239" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M 101 292 Q 172.60000000000002 287 259 291 L 257 420 Q 171.0 423 97 419 Z" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
@@ -10,15 +10,15 @@
 <text x="123" y="381" font-size="24" fill="#242424" class="pen">approval</text>
 <path d="M295 357 Q597.5 352 900 358" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M884 347 L900 358 L884 369" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="464" y="328" font-size="30" fill="#ad4239" class="pen">the note gets through</text>
+<text x="464" y="328" font-size="30" fill="#ad4239" class="pen">unauthorized write</text>
 <path d="M 944 291 Q 1103.92 286 1294 290 L 1292 449 Q 1100.4 452 940 448 Z" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M 947 294 Q 1135.6 290 1296 288 M 1297 292 L 1295 446" stroke="#242424" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="983" y="267" font-size="29" fill="#242424" class="pen">Off-limits box</text>
+<text x="972" y="267" font-size="27" fill="#242424" class="pen">Restricted resource</text>
 <path d="M 1060 314 Q 1108.6 309 1168 313 L 1166 413 Q 1107.5 416 1056 412 Z" stroke="#ad4239" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M 1063 317 Q 1118.5 313 1170 311 M 1171 315 L 1169 410" stroke="#ad4239" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M1080 337 L1146 338 M1080 357 L1139 359 M1080 378 L1148 379" stroke="#ad4239" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="1024" y="486" font-size="29" fill="#ad4239" class="pen">note added</text>
-<text x="69" y="566" font-size="34" fill="#242424" class="pen">2. Add a separate rule</text>
+<text x="1000" y="486" font-size="29" fill="#ad4239" class="pen">write accepted</text>
+<text x="69" y="566" font-size="34" fill="#242424" class="pen">2. Enforce permissions</text>
 <path d="M72 580 Q287 585 470 577" stroke="#315f8c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M 101 632 Q 172.60000000000002 627 259 631 L 257 760 Q 171.0 763 97 759 Z" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M 104 635 Q 187.0 631 261 629 M 262 633 L 260 757" stroke="#242424" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
@@ -28,16 +28,16 @@
 <path d="M441 686 L457 697 L441 708" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M 491 619 Q 633.9 614 804 618 L 802 776 Q 630.75 779 487 775 Z" stroke="#315f8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M 494 622 Q 662.25 618 806 616 M 807 620 L 805 773" stroke="#315f8c" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="520" y="676" font-size="32" fill="#242424" class="pen">Allowed here?</text>
-<text x="614" y="728" font-size="38" fill="#315f8c" class="pen">NO</text>
+<text x="513" y="676" font-size="28" fill="#242424" class="pen">Permission check</text>
+<text x="596" y="728" font-size="36" fill="#315f8c" class="pen">DENY</text>
 <path d="M832 696 Q873.5 691 915 697" stroke="#315f8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M899 686 L915 697 L899 708" stroke="#315f8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M908 678 L933 714 M932 679 L908 714" stroke="#ad4239" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M 978 619 Q 1121.82 614 1293 618 L 1291 776 Q 1118.65 779 974 775 Z" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M 981 622 Q 1150.35 618 1295 616 M 1296 620 L 1294 773" stroke="#242424" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="1009" y="597" font-size="29" fill="#242424" class="pen">Off-limits box</text>
+<text x="992" y="597" font-size="27" fill="#242424" class="pen">Restricted resource</text>
 <text x="1075" y="710" font-size="36" fill="#626262" class="pen">empty</text>
-<text x="826" y="823" font-size="30" fill="#315f8c" class="pen">note blocked</text>
+<text x="826" y="823" font-size="30" fill="#315f8c" class="pen">write blocked</text>
 <path d="M76 887 L91 903 L116 872" stroke="#315f8c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="140" y="904" font-size="32" fill="#315f8c" class="pen">The allowed note still goes through.</text>
+<text x="140" y="904" font-size="32" fill="#315f8c" class="pen">The authorized request still executes.</text>
 </svg>

@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="600" viewBox="0 0 1500 600" role="img" aria-label="The same forced approval lets a note through in the control, while a separate permission rule blocks it."><rect width="1500" height="600" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="600" viewBox="0 0 1500 600" role="img" aria-label="AI agent execution: the same signed request and forced approval permit an unauthorized write in the control; an independent permission check blocks execution."><rect width="1500" height="600" fill="white"/>
 <style>text{font-family:Chalkboard,"Comic Sans MS",cursive}.small{font-family:Arial,Helvetica,sans-serif}</style>
-<text x="62" y="93" font-size="62" fill="#242424" class="pen">It said yes. Was it allowed?</text>
-<text x="67" y="147" font-size="28" fill="#626262" class="pen">Same note. Same forced approval.</text>
+<text x="62" y="93" font-size="58" fill="#242424" class="pen">AI agent approval isn&#x27;t permission</text>
+<text x="67" y="147" font-size="28" fill="#626262" class="pen">Same signed request. Same forced approval.</text>
 <path d="M 69 208 Q 152.10000000000002 203 252 207 L 250 306 Q 150.25 309 65 305 Z" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M 72 211 Q 168.75 207 254 205 M 255 209 L 253 303" stroke="#242424" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <text x="126" y="271" font-size="40" fill="#242424" class="pen">YES</text>
@@ -10,20 +10,20 @@
 <text x="487" y="242" font-size="30" fill="#242424" class="pen">Approval only</text>
 <path d="M 1062 208 Q 1230.2 203 1430 207 L 1428 306 Q 1226.5 309 1058 305 Z" stroke="#ad4239" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M 1065 211 Q 1263.5 207 1432 205 M 1433 209 L 1431 303" stroke="#ad4239" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="1100" y="250" font-size="29" fill="#242424" class="pen">Off-limits box</text>
-<text x="1120" y="285" font-size="27" fill="#ad4239" class="pen">note added</text>
+<text x="1090" y="250" font-size="28" fill="#242424" class="pen">Restricted resource</text>
+<text x="1130" y="285" font-size="27" fill="#ad4239" class="pen">write accepted</text>
 <path d="M 69 377 Q 152.10000000000002 372 252 376 L 250 475 Q 150.25 478 65 474 Z" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M 72 380 Q 168.75 376 254 374 M 255 378 L 253 472" stroke="#242424" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <text x="126" y="440" font-size="40" fill="#242424" class="pen">YES</text>
 <path d="M282 425 Q391.0 420 500 426" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M484 415 L500 426 L484 437" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="307" y="394" font-size="26" fill="#315f8c" class="pen">Add a rule</text>
+<text x="306" y="394" font-size="23" fill="#315f8c" class="pen">Check permissions</text>
 <path d="M 533 372 Q 680.5 367 856 371 L 854 480 Q 677.25 483 529 479 Z" stroke="#315f8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M 536 375 Q 709.75 371 858 369 M 859 373 L 857 477" stroke="#315f8c" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="568" y="414" font-size="32" fill="#242424" class="pen">Allowed here?</text>
-<text x="669" y="454" font-size="31" fill="#315f8c" class="pen">NO</text>
+<text x="554" y="414" font-size="29" fill="#242424" class="pen">Permission check</text>
+<text x="652" y="454" font-size="31" fill="#315f8c" class="pen">DENY</text>
 <path d="M888 425 Q941.0 420 994 426" stroke="#315f8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M978 415 L994 426 L978 437" stroke="#315f8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M988 407 L1013 443 M1012 408 L988 443" stroke="#ad4239" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="1080" y="439" font-size="37" fill="#315f8c" class="pen">note blocked</text>
+<text x="1080" y="439" font-size="37" fill="#315f8c" class="pen">write blocked</text>
 </svg>

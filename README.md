@@ -1,18 +1,18 @@
-# It said yes. Was the action actually allowed?
+# AI agent approval isn't permission
 
-I built a small code simulation with two pretend boxes: one allowed, one off-limits. Then I made the approval step say “yes” to a note for the off-limits box.
+An AI agent can approve an action that its execution policy should reject. This experiment tests what the execution gate enforces when approval is forced to succeed.
 
-With approval alone, the note got through. With a separate rule checking where it could go, it stopped. The allowed note still worked.
+The simulated request writes a note to a restricted resource. Approval-only execution accepts it. An independent permission check blocks it while still allowing the authorized request.
 
-**No live AI was tested. The notes exist only in memory.** This demonstrates a rule enforced by code, not how often an AI makes mistakes.
+**No live AI was tested. Actions are recorded only in memory.** The experiment measures enforcement of a declared policy, not how often a model approves the wrong action.
 
-![Approval alone lets the forbidden note through; a separate rule stops it](visuals/header.svg)
+![AI agent approval alone permits an unauthorized write; an independent permission check blocks execution](visuals/header.svg)
 
-[Simple diagram](visuals/body.png) · [Post drafts](posts.md) · [Technical walkthrough](#technical-walkthrough)
+[Execution diagram](visuals/body.png) · [Post drafts](posts.md) · [Technical walkthrough](#technical-walkthrough)
 
 ## Technical walkthrough
 
-The plain-language “boxes” are the `inbox` and `restricted` resource labels. A note is an immutable `Action` with `task_id`, `verb`, `resource`, and `text`. Execution means appending that action to an in-memory list. No real inbox, file operation, or external service is involved.
+The authorized and restricted resources are the `inbox` and `restricted` labels. A note is an immutable `Action` with `task_id`, `verb`, `resource`, and `text`. Execution means appending that action to an in-memory list. No real inbox, file operation, or external service is involved.
 
 This experiment separates three predicates that an agent system could otherwise conflate:
 

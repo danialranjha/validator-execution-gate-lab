@@ -1,66 +1,64 @@
 # Publication drafts
 
-Drafts only; not posted. Use the sketch-style header for the opening post and the body diagram for the example. The technical detail lives in the README.
+Drafts only; not posted. Intended audience: technical people who build or use AI agents. Use the sketch-style header for the opening post and the body diagram for the execution-gate example. The full technical walkthrough lives in the README.
 
 ## X thread
 
 ### 1/4
 
-I made the approval step say “yes” to something it should never allow.
+Your AI agent approved the action. Does it have permission to execute it?
 
-Could a separate rule still stop it?
-
-I built a small code simulation to check. No live AI was involved.
+I built a small simulation to test the execution gate after a forced approval. No live model calls.
 
 ### 2/4
 
-The task: put a note in the allowed box.
+The request: write a note to a restricted resource.
 
-The bad request: put it in the off-limits box instead.
+Approval-only execution let it through. An independent permission check blocked it. The authorized write still succeeded.
 
-With approval alone, the note got through. Add a separate rule check, and it stopped. The allowed note still worked.
+Same request. Same approval. Different execution gate.
 
 ### 3/4
 
-My takeaway for AI agents: plan for the approval step to be wrong.
+Approval and permission answer different questions.
 
-A second “yes” is not the useful test. Ask what still stops the action when that “yes” should have been “no.”
+Approval says “go ahead.” A permission check asks whether this action is allowed for this task and resource.
 
-This demo tests a rule in code. It doesn't show how often an AI makes that mistake.
+In this demo, that independent check stopped the unauthorized action.
 
 ### 4/4
 
-The full explanation, code, and results:
+Code, results, and the technical walkthrough:
 https://github.com/danialranjha/validator-execution-gate-lab#technical-walkthrough
 
-The check to add: force a “yes.” The forbidden action must stop, and the allowed one must still work.
+Regression check: force approval of an unauthorized action. Verify execution is blocked and the authorized case still succeeds.
 
 ## LinkedIn post
 
-What stops an AI agent when its approval step gets it wrong?
+Your AI agent approved the action. Does it have permission to execute it?
 
-I built a small code simulation around that question. No live AI was involved.
+I built a small simulation of an AI agent's execution gate. I forced the approval step to accept a request to write a note to a restricted resource.
 
-The task was simple: put a note in the allowed box. I then tried the off-limits box and made the approval step say “yes” anyway.
+With approval as the only check, the unauthorized write went through.
 
-With approval alone, the note got through.
+With an independent permission check at execution, it was blocked. The authorized write still succeeded.
 
-With a separate rule checking where the note was allowed to go, it stopped. The note for the allowed box still went through.
+The request even had a valid signature. In this case, the signature check passed; the permission policy supplied the block.
 
-My takeaway: when building an agent, test what happens after a bad approval. There needs to be something that can still stop the action.
+My takeaway for agent builders: test the execution boundary after approval has already failed. Permission enforcement needs to hold even when the approval step says yes.
 
-This was a toy example. It tests a rule in code, not how often an AI makes mistakes.
+This was a code simulation with actions recorded in memory. No live model was tested.
 
-I put the technical explanation, research source, code, and full results here:
+The README explains the threat model, signed requests, policy checks, and full results:
 https://github.com/danialranjha/validator-execution-gate-lab#technical-walkthrough
 
-The check to add: force a “yes.” The forbidden action must stop, and the allowed one must still work.
+The regression check: force approval of an unauthorized action. Verify execution is blocked and the authorized case still succeeds.
 
 ## Editorial notes
 
-“Box” is the plain-language name for a resource label in the program. Notes are only records in memory. The off-limits example is the recorded `signed_restricted` fixture; the allowed example is `benign_twin`. “Separate rule” refers to the independent policy check. Both policy-only and combined modes give the outcome described. The simulation forces approval; it does not demonstrate a live model being fooled.
+The request targets the program's `restricted` resource label. A “write” means appending a synthetic action to an in-memory ledger; it does not operate on real files. The unauthorized example is `signed_restricted`; the authorized example is `benign_twin`. “Permission check” means the independent policy. Policy-only and combined modes both give the outcome described. The simulation forces approval and does not show a live model being fooled.
 
-The social text deliberately focuses on this one comparison. The README covers the second comparison (forged approval credentials), exact-action binding, replay, test counts, limitations, and source attribution. The four-part thread shares its technical evidence link in the closing post; the mapping below supports the whole thread and LinkedIn draft.
+Use established terms such as AI agent, approval, permission, signed request, and execution gate. Name the topic in the first line of each standalone post and each image headline. Keep the explanation concise without substituting vague pronouns or unrelated everyday analogies for the mechanism. The thread's closing link and evidence map support its claims; implementation detail remains in the README.
 
 ## Public evidence map
 
