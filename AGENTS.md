@@ -1,0 +1,3 @@
+# Experiment working rules
+
+This repository is a contained, synthetic authorization experiment. Use Python standard library only. No network calls, real endpoints, private data, credentials, external commands, or unsafe payloads in experiment code. Keep sink actions in memory. Generate ephemeral test keys in memory; never save keys or tokens in artifacts. Describe deterministic fixtures honestly; never call them live-model results. Codex owns connected apps, publishing, browser QA, and final review. Pi owns assigned local implementation and tests. Do not commit, push, or change files outside the assigned repository.
