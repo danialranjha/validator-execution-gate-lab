@@ -1,0 +1,17 @@
+{
+  "purpose": "Prove critical tests detect removing either enforcement gate",
+  "mutations": [
+    {
+      "mutation": "remove_policy",
+      "targeted_test": "test_experiment.AuthorizationTests.test_stolen_key_requires_policy_and_benign_twin_survives",
+      "mutation_detected": true,
+      "exit_code": 1
+    },
+    {
+      "mutation": "remove_token",
+      "targeted_test": "test_experiment.AuthorizationTests.test_wrong_signer_for_allowed_action_requires_signature",
+      "mutation_detected": true,
+      "exit_code": 1
+    }
+  ]
+}

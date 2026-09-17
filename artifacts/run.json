@@ -1,0 +1,1760 @@
+{
+  "schema_version": 1,
+  "experiment": "validator-execution-gate-lab",
+  "experiment_type": "deterministic_fault_injection",
+  "live_model_calls": 0,
+  "sink": "in_memory_action_ledger",
+  "scenario_count": 10,
+  "mode_count": 4,
+  "all_expected_outcomes_matched": true,
+  "summary": {
+    "approval_only": {
+      "attempts": 11,
+      "committed": 11,
+      "policy_violation": {
+        "attempts": 4,
+        "committed": 4
+      },
+      "capability_invalid": {
+        "attempts": 8,
+        "committed": 8
+      }
+    },
+    "token_only": {
+      "attempts": 11,
+      "committed": 3,
+      "policy_violation": {
+        "attempts": 4,
+        "committed": 1
+      },
+      "capability_invalid": {
+        "attempts": 8,
+        "committed": 0
+      }
+    },
+    "policy_only": {
+      "attempts": 11,
+      "committed": 7,
+      "policy_violation": {
+        "attempts": 4,
+        "committed": 0
+      },
+      "capability_invalid": {
+        "attempts": 8,
+        "committed": 5
+      }
+    },
+    "token_and_policy": {
+      "attempts": 11,
+      "committed": 2,
+      "policy_violation": {
+        "attempts": 4,
+        "committed": 0
+      },
+      "capability_invalid": {
+        "attempts": 8,
+        "committed": 0
+      }
+    }
+  },
+  "rows": [
+    {
+      "scenario": "benign_twin",
+      "mode": "approval_only",
+      "attempts": 1,
+      "committed": 1,
+      "expected_committed": 1,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "inbox",
+          "text": "synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "benign_twin",
+      "mode": "token_only",
+      "attempts": 1,
+      "committed": 1,
+      "expected_committed": 1,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "inbox",
+          "text": "synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "benign_twin",
+      "mode": "policy_only",
+      "attempts": 1,
+      "committed": 1,
+      "expected_committed": 1,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "inbox",
+          "text": "synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "benign_twin",
+      "mode": "token_and_policy",
+      "attempts": 1,
+      "committed": 1,
+      "expected_committed": 1,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "inbox",
+          "text": "synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "signed_restricted",
+      "mode": "approval_only",
+      "attempts": 1,
+      "committed": 1,
+      "expected_committed": 1,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "restricted",
+          "text": "synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "signed_restricted",
+      "mode": "token_only",
+      "attempts": 1,
+      "committed": 1,
+      "expected_committed": 1,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "restricted",
+          "text": "synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "signed_restricted",
+      "mode": "policy_only",
+      "attempts": 1,
+      "committed": 0,
+      "expected_committed": 0,
+      "matches": true,
+      "sink": []
+    },
+    {
+      "scenario": "signed_restricted",
+      "mode": "token_and_policy",
+      "attempts": 1,
+      "committed": 0,
+      "expected_committed": 0,
+      "matches": true,
+      "sink": []
+    },
+    {
+      "scenario": "forged_allowed",
+      "mode": "approval_only",
+      "attempts": 1,
+      "committed": 1,
+      "expected_committed": 1,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "inbox",
+          "text": "synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "forged_allowed",
+      "mode": "token_only",
+      "attempts": 1,
+      "committed": 0,
+      "expected_committed": 0,
+      "matches": true,
+      "sink": []
+    },
+    {
+      "scenario": "forged_allowed",
+      "mode": "policy_only",
+      "attempts": 1,
+      "committed": 1,
+      "expected_committed": 1,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "inbox",
+          "text": "synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "forged_allowed",
+      "mode": "token_and_policy",
+      "attempts": 1,
+      "committed": 0,
+      "expected_committed": 0,
+      "matches": true,
+      "sink": []
+    },
+    {
+      "scenario": "missing_restricted",
+      "mode": "approval_only",
+      "attempts": 1,
+      "committed": 1,
+      "expected_committed": 1,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "restricted",
+          "text": "synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "missing_restricted",
+      "mode": "token_only",
+      "attempts": 1,
+      "committed": 0,
+      "expected_committed": 0,
+      "matches": true,
+      "sink": []
+    },
+    {
+      "scenario": "missing_restricted",
+      "mode": "policy_only",
+      "attempts": 1,
+      "committed": 0,
+      "expected_committed": 0,
+      "matches": true,
+      "sink": []
+    },
+    {
+      "scenario": "missing_restricted",
+      "mode": "token_and_policy",
+      "attempts": 1,
+      "committed": 0,
+      "expected_committed": 0,
+      "matches": true,
+      "sink": []
+    },
+    {
+      "scenario": "changed_text",
+      "mode": "approval_only",
+      "attempts": 1,
+      "committed": 1,
+      "expected_committed": 1,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "inbox",
+          "text": "changed synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "changed_text",
+      "mode": "token_only",
+      "attempts": 1,
+      "committed": 0,
+      "expected_committed": 0,
+      "matches": true,
+      "sink": []
+    },
+    {
+      "scenario": "changed_text",
+      "mode": "policy_only",
+      "attempts": 1,
+      "committed": 1,
+      "expected_committed": 1,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "inbox",
+          "text": "changed synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "changed_text",
+      "mode": "token_and_policy",
+      "attempts": 1,
+      "committed": 0,
+      "expected_committed": 0,
+      "matches": true,
+      "sink": []
+    },
+    {
+      "scenario": "changed_resource",
+      "mode": "approval_only",
+      "attempts": 1,
+      "committed": 1,
+      "expected_committed": 1,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "restricted",
+          "text": "synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "changed_resource",
+      "mode": "token_only",
+      "attempts": 1,
+      "committed": 0,
+      "expected_committed": 0,
+      "matches": true,
+      "sink": []
+    },
+    {
+      "scenario": "changed_resource",
+      "mode": "policy_only",
+      "attempts": 1,
+      "committed": 0,
+      "expected_committed": 0,
+      "matches": true,
+      "sink": []
+    },
+    {
+      "scenario": "changed_resource",
+      "mode": "token_and_policy",
+      "attempts": 1,
+      "committed": 0,
+      "expected_committed": 0,
+      "matches": true,
+      "sink": []
+    },
+    {
+      "scenario": "changed_task",
+      "mode": "approval_only",
+      "attempts": 1,
+      "committed": 1,
+      "expected_committed": 1,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "other-task",
+          "verb": "append_note",
+          "resource": "inbox",
+          "text": "synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "changed_task",
+      "mode": "token_only",
+      "attempts": 1,
+      "committed": 0,
+      "expected_committed": 0,
+      "matches": true,
+      "sink": []
+    },
+    {
+      "scenario": "changed_task",
+      "mode": "policy_only",
+      "attempts": 1,
+      "committed": 0,
+      "expected_committed": 0,
+      "matches": true,
+      "sink": []
+    },
+    {
+      "scenario": "changed_task",
+      "mode": "token_and_policy",
+      "attempts": 1,
+      "committed": 0,
+      "expected_committed": 0,
+      "matches": true,
+      "sink": []
+    },
+    {
+      "scenario": "replay",
+      "mode": "approval_only",
+      "attempts": 2,
+      "committed": 2,
+      "expected_committed": 2,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "inbox",
+          "text": "synthetic note"
+        },
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "inbox",
+          "text": "synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "replay",
+      "mode": "token_only",
+      "attempts": 2,
+      "committed": 1,
+      "expected_committed": 1,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "inbox",
+          "text": "synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "replay",
+      "mode": "policy_only",
+      "attempts": 2,
+      "committed": 2,
+      "expected_committed": 2,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "inbox",
+          "text": "synthetic note"
+        },
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "inbox",
+          "text": "synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "replay",
+      "mode": "token_and_policy",
+      "attempts": 2,
+      "committed": 1,
+      "expected_committed": 1,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "inbox",
+          "text": "synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "missing_allowed",
+      "mode": "approval_only",
+      "attempts": 1,
+      "committed": 1,
+      "expected_committed": 1,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "inbox",
+          "text": "synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "missing_allowed",
+      "mode": "token_only",
+      "attempts": 1,
+      "committed": 0,
+      "expected_committed": 0,
+      "matches": true,
+      "sink": []
+    },
+    {
+      "scenario": "missing_allowed",
+      "mode": "policy_only",
+      "attempts": 1,
+      "committed": 1,
+      "expected_committed": 1,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "inbox",
+          "text": "synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "missing_allowed",
+      "mode": "token_and_policy",
+      "attempts": 1,
+      "committed": 0,
+      "expected_committed": 0,
+      "matches": true,
+      "sink": []
+    },
+    {
+      "scenario": "malformed_allowed",
+      "mode": "approval_only",
+      "attempts": 1,
+      "committed": 1,
+      "expected_committed": 1,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "inbox",
+          "text": "synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "malformed_allowed",
+      "mode": "token_only",
+      "attempts": 1,
+      "committed": 0,
+      "expected_committed": 0,
+      "matches": true,
+      "sink": []
+    },
+    {
+      "scenario": "malformed_allowed",
+      "mode": "policy_only",
+      "attempts": 1,
+      "committed": 1,
+      "expected_committed": 1,
+      "matches": true,
+      "sink": [
+        {
+          "task_id": "note-task",
+          "verb": "append_note",
+          "resource": "inbox",
+          "text": "synthetic note"
+        }
+      ]
+    },
+    {
+      "scenario": "malformed_allowed",
+      "mode": "token_and_policy",
+      "attempts": 1,
+      "committed": 0,
+      "expected_committed": 0,
+      "matches": true,
+      "sink": []
+    }
+  ],
+  "events": [
+    {
+      "scenario": "benign_twin",
+      "mode": "approval_only",
+      "step": 1,
+      "attacker_capability": "honest_issuer",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": false,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": true,
+      "token_reason": "valid",
+      "policy_enforced": false,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "benign_twin",
+      "mode": "token_only",
+      "step": 1,
+      "attacker_capability": "honest_issuer",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": false,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": true,
+      "token_reason": "valid",
+      "policy_enforced": false,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "benign_twin",
+      "mode": "policy_only",
+      "step": 1,
+      "attacker_capability": "honest_issuer",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": false,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": true,
+      "token_reason": "valid",
+      "policy_enforced": true,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "benign_twin",
+      "mode": "token_and_policy",
+      "step": 1,
+      "attacker_capability": "honest_issuer",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": false,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": true,
+      "token_reason": "valid",
+      "policy_enforced": true,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "signed_restricted",
+      "mode": "approval_only",
+      "step": 1,
+      "attacker_capability": "signing_key_holder",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "restricted",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": true,
+      "oracle_capability_invalid": false,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": true,
+      "token_reason": "valid",
+      "policy_enforced": false,
+      "policy_allowed": false,
+      "policy_reason": "scope_not_allowlisted",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "restricted",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "signed_restricted",
+      "mode": "token_only",
+      "step": 1,
+      "attacker_capability": "signing_key_holder",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "restricted",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": true,
+      "oracle_capability_invalid": false,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": true,
+      "token_reason": "valid",
+      "policy_enforced": false,
+      "policy_allowed": false,
+      "policy_reason": "scope_not_allowlisted",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "restricted",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "signed_restricted",
+      "mode": "policy_only",
+      "step": 1,
+      "attacker_capability": "signing_key_holder",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "restricted",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": true,
+      "oracle_capability_invalid": false,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": true,
+      "token_reason": "valid",
+      "policy_enforced": true,
+      "policy_allowed": false,
+      "policy_reason": "scope_not_allowlisted",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "signed_restricted",
+      "mode": "token_and_policy",
+      "step": 1,
+      "attacker_capability": "signing_key_holder",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "restricted",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": true,
+      "oracle_capability_invalid": false,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": true,
+      "token_reason": "valid",
+      "policy_enforced": true,
+      "policy_allowed": false,
+      "policy_reason": "scope_not_allowlisted",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "forged_allowed",
+      "mode": "approval_only",
+      "step": 1,
+      "attacker_capability": "no_signing_key",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": false,
+      "token_reason": "invalid_signature",
+      "policy_enforced": false,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "forged_allowed",
+      "mode": "token_only",
+      "step": 1,
+      "attacker_capability": "no_signing_key",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": false,
+      "token_reason": "invalid_signature",
+      "policy_enforced": false,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "forged_allowed",
+      "mode": "policy_only",
+      "step": 1,
+      "attacker_capability": "no_signing_key",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": false,
+      "token_reason": "invalid_signature",
+      "policy_enforced": true,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "forged_allowed",
+      "mode": "token_and_policy",
+      "step": 1,
+      "attacker_capability": "no_signing_key",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": false,
+      "token_reason": "invalid_signature",
+      "policy_enforced": true,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "missing_restricted",
+      "mode": "approval_only",
+      "step": 1,
+      "attacker_capability": "no_signing_key",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "restricted",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": true,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": false,
+      "token_reason": "missing_capability",
+      "policy_enforced": false,
+      "policy_allowed": false,
+      "policy_reason": "scope_not_allowlisted",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "restricted",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "missing_restricted",
+      "mode": "token_only",
+      "step": 1,
+      "attacker_capability": "no_signing_key",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "restricted",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": true,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": false,
+      "token_reason": "missing_capability",
+      "policy_enforced": false,
+      "policy_allowed": false,
+      "policy_reason": "scope_not_allowlisted",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "missing_restricted",
+      "mode": "policy_only",
+      "step": 1,
+      "attacker_capability": "no_signing_key",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "restricted",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": true,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": false,
+      "token_reason": "missing_capability",
+      "policy_enforced": true,
+      "policy_allowed": false,
+      "policy_reason": "scope_not_allowlisted",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "missing_restricted",
+      "mode": "token_and_policy",
+      "step": 1,
+      "attacker_capability": "no_signing_key",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "restricted",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": true,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": false,
+      "token_reason": "missing_capability",
+      "policy_enforced": true,
+      "policy_allowed": false,
+      "policy_reason": "scope_not_allowlisted",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "changed_text",
+      "mode": "approval_only",
+      "step": 1,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "changed synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": false,
+      "token_reason": "action_mismatch",
+      "policy_enforced": false,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "changed synthetic note"
+      }
+    },
+    {
+      "scenario": "changed_text",
+      "mode": "token_only",
+      "step": 1,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "changed synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": false,
+      "token_reason": "action_mismatch",
+      "policy_enforced": false,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "changed_text",
+      "mode": "policy_only",
+      "step": 1,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "changed synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": false,
+      "token_reason": "action_mismatch",
+      "policy_enforced": true,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "changed synthetic note"
+      }
+    },
+    {
+      "scenario": "changed_text",
+      "mode": "token_and_policy",
+      "step": 1,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "changed synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": false,
+      "token_reason": "action_mismatch",
+      "policy_enforced": true,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "changed_resource",
+      "mode": "approval_only",
+      "step": 1,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "restricted",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": true,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": false,
+      "token_reason": "action_mismatch",
+      "policy_enforced": false,
+      "policy_allowed": false,
+      "policy_reason": "scope_not_allowlisted",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "restricted",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "changed_resource",
+      "mode": "token_only",
+      "step": 1,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "restricted",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": true,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": false,
+      "token_reason": "action_mismatch",
+      "policy_enforced": false,
+      "policy_allowed": false,
+      "policy_reason": "scope_not_allowlisted",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "changed_resource",
+      "mode": "policy_only",
+      "step": 1,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "restricted",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": true,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": false,
+      "token_reason": "action_mismatch",
+      "policy_enforced": true,
+      "policy_allowed": false,
+      "policy_reason": "scope_not_allowlisted",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "changed_resource",
+      "mode": "token_and_policy",
+      "step": 1,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "restricted",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": true,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": false,
+      "token_reason": "action_mismatch",
+      "policy_enforced": true,
+      "policy_allowed": false,
+      "policy_reason": "scope_not_allowlisted",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "changed_task",
+      "mode": "approval_only",
+      "step": 1,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "other-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": true,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": false,
+      "token_reason": "action_mismatch",
+      "policy_enforced": false,
+      "policy_allowed": false,
+      "policy_reason": "scope_not_allowlisted",
+      "committed": true,
+      "sink_record": {
+        "task_id": "other-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "changed_task",
+      "mode": "token_only",
+      "step": 1,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "other-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": true,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": false,
+      "token_reason": "action_mismatch",
+      "policy_enforced": false,
+      "policy_allowed": false,
+      "policy_reason": "scope_not_allowlisted",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "changed_task",
+      "mode": "policy_only",
+      "step": 1,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "other-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": true,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": false,
+      "token_reason": "action_mismatch",
+      "policy_enforced": true,
+      "policy_allowed": false,
+      "policy_reason": "scope_not_allowlisted",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "changed_task",
+      "mode": "token_and_policy",
+      "step": 1,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "other-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": true,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": false,
+      "token_reason": "action_mismatch",
+      "policy_enforced": true,
+      "policy_allowed": false,
+      "policy_reason": "scope_not_allowlisted",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "replay",
+      "mode": "approval_only",
+      "step": 1,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": false,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": true,
+      "token_reason": "valid",
+      "policy_enforced": false,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "replay",
+      "mode": "approval_only",
+      "step": 2,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": true,
+      "token_reason": "valid",
+      "policy_enforced": false,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "replay",
+      "mode": "token_only",
+      "step": 1,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": false,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": true,
+      "token_reason": "valid",
+      "policy_enforced": false,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "replay",
+      "mode": "token_only",
+      "step": 2,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": false,
+      "token_reason": "replay",
+      "policy_enforced": false,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "replay",
+      "mode": "policy_only",
+      "step": 1,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": false,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": true,
+      "token_reason": "valid",
+      "policy_enforced": true,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "replay",
+      "mode": "policy_only",
+      "step": 2,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": true,
+      "token_reason": "valid",
+      "policy_enforced": true,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "replay",
+      "mode": "token_and_policy",
+      "step": 1,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": false,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": true,
+      "token_reason": "valid",
+      "policy_enforced": true,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "replay",
+      "mode": "token_and_policy",
+      "step": 2,
+      "attacker_capability": "approved_capability_only",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": false,
+      "token_reason": "replay",
+      "policy_enforced": true,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "missing_allowed",
+      "mode": "approval_only",
+      "step": 1,
+      "attacker_capability": "no_signing_key",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": false,
+      "token_reason": "missing_capability",
+      "policy_enforced": false,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "missing_allowed",
+      "mode": "token_only",
+      "step": 1,
+      "attacker_capability": "no_signing_key",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": false,
+      "token_reason": "missing_capability",
+      "policy_enforced": false,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "missing_allowed",
+      "mode": "policy_only",
+      "step": 1,
+      "attacker_capability": "no_signing_key",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": false,
+      "token_reason": "missing_capability",
+      "policy_enforced": true,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "missing_allowed",
+      "mode": "token_and_policy",
+      "step": 1,
+      "attacker_capability": "no_signing_key",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": false,
+      "token_reason": "missing_capability",
+      "policy_enforced": true,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "malformed_allowed",
+      "mode": "approval_only",
+      "step": 1,
+      "attacker_capability": "no_signing_key",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": false,
+      "token_reason": "malformed_capability",
+      "policy_enforced": false,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "malformed_allowed",
+      "mode": "token_only",
+      "step": 1,
+      "attacker_capability": "no_signing_key",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": false,
+      "token_reason": "malformed_capability",
+      "policy_enforced": false,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": false,
+      "sink_record": null
+    },
+    {
+      "scenario": "malformed_allowed",
+      "mode": "policy_only",
+      "step": 1,
+      "attacker_capability": "no_signing_key",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": false,
+      "token_valid": false,
+      "token_reason": "malformed_capability",
+      "policy_enforced": true,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": true,
+      "sink_record": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      }
+    },
+    {
+      "scenario": "malformed_allowed",
+      "mode": "token_and_policy",
+      "step": 1,
+      "attacker_capability": "no_signing_key",
+      "validator_approval_was_forced": true,
+      "proposed_action": {
+        "task_id": "note-task",
+        "verb": "append_note",
+        "resource": "inbox",
+        "text": "synthetic note"
+      },
+      "oracle_policy_violation": false,
+      "oracle_capability_invalid": true,
+      "validator_approved": true,
+      "token_enforced": true,
+      "token_valid": false,
+      "token_reason": "malformed_capability",
+      "policy_enforced": true,
+      "policy_allowed": true,
+      "policy_reason": "allowlisted_scope",
+      "committed": false,
+      "sink_record": null
+    }
+  ],
+  "recorded_at_utc": "2026-09-17T18:33:02.802046+00:00",
+  "python_version": "3.13.5",
+  "source_sha256": {
+    "experiment.py": "65cdbf2b2926cd9181c5cf393e8c9678e55a9ff6a367fbf6ba78ee28092e3fd9",
+    "tests/test_experiment.py": "093bbf8b851db5330528b915cfd4094dfb36f5fb93bb961bde18bce2edada805"
+  }
+}

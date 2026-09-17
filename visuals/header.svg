@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="600" viewBox="0 0 1500 600" role="img" aria-label="Forced approval: control appends a signed restricted action; independent policy denies it. Deterministic fixtures, no live LLM, in-memory sink.">
+<rect width="1500" height="600" fill="#f7f3e9"/>
+<style>text{font-family:Arial,Helvetica,sans-serif} .mono{font-family:Menlo,Consolas,monospace}</style>
+<text x="64" y="62" font-size="20" fill="#4a6065" font-weight="700" class="">AUTHORIZATION LAB / OBSERVED FIXTURE</text>
+<text x="64" y="133" font-size="56" fill="#172d32" font-weight="700" class="">The validator approved.</text>
+<text x="64" y="197" font-size="44" fill="#172d32" font-weight="700" class="">The action still needed permission.</text>
+<rect x="64" y="251" width="426" height="211" rx="16" fill="#e7e9df" stroke="none" stroke-width="2"/>
+<text x="88" y="293" font-size="18" fill="#4a6065" font-weight="700" class="">SAME INPUT TO BOTH</text>
+<text x="88" y="340" font-size="27" fill="#172d32" font-weight="700" class="">Forced approval: YES</text>
+<text x="88" y="382" font-size="26" fill="#172d32" font-weight="400" class="">Valid signature</text>
+<text x="88" y="423" font-size="25" fill="#172d32" font-weight="400" class="mono">Resource: restricted</text>
+<path d="M512 317 L578 317" stroke="#a4372d" stroke-width="3" fill="none"/>
+<path d="M568 310 L578 317 L568 324" fill="none" stroke="#a4372d" stroke-width="3"/>
+<path d="M512 416 L578 416" stroke="#126b59" stroke-width="3" fill="none"/>
+<path d="M568 409 L578 416 L568 423" fill="none" stroke="#126b59" stroke-width="3"/>
+<rect x="594" y="269" width="840" height="85" rx="16" fill="#f1ded6" stroke="none" stroke-width="2"/>
+<text x="620" y="303" font-size="17" fill="#a4372d" font-weight="700" class="">CONTROL · APPROVAL ONLY</text>
+<text x="620" y="335" font-size="28" fill="#a4372d" font-weight="700" class="">1 sink append</text>
+<text x="995" y="325" font-size="24" fill="#172d32" font-weight="400" class="">Approval permits dispatch</text>
+<rect x="594" y="372" width="840" height="90" rx="16" fill="#dcece3" stroke="none" stroke-width="2"/>
+<text x="620" y="405" font-size="17" fill="#126b59" font-weight="700" class="">INTERVENTION · TOKEN + POLICY</text>
+<text x="620" y="440" font-size="28" fill="#126b59" font-weight="700" class="">0 sink appends</text>
+<text x="995" y="430" font-size="24" fill="#172d32" font-weight="400" class="">Policy denies this scope</text>
+<path d="M64 500 L1434 500" stroke="#c7d2cc" stroke-width="2" fill="none"/>
+<text x="64" y="539" font-size="23" fill="#4a6065" font-weight="400" class="">Deterministic fixtures · No live LLM · In-memory sink</text>
+<text x="64" y="574" font-size="20" fill="#4a6065" font-weight="400" class="">Single-process demonstration; not production isolation.</text>
+</svg>
