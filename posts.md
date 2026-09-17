@@ -1,89 +1,66 @@
 # Publication drafts
 
-Drafts only. No social posts have been published. Attach `visuals/header.png` to the opening post and `visuals/body.png` to the ablation explanation.
+Drafts only; not posted. Use the sketch-style header for the opening post and the body diagram for the example. The technical detail lives in the README.
 
 ## X thread
 
-### 1/7
+### 1/4
 
-I built a tiny test that forces an agent validator to approve every action, then checks what reaches the sink. No live LLM: deterministic fixtures and an in-memory ledger.
+I made the approval step say “yes” to something it should never allow.
 
-Code + reproduction:
-https://github.com/danialranjha/validator-execution-gate-lab
+Could a separate rule still stop it?
 
-### 2/7
+I built a small code simulation to check. No live AI was involved.
 
-Same approval. Same signed action targeting a restricted resource.
+### 2/4
 
-Approval only: 1 append.
-Token only: 1 append.
-Policy only: 0.
-Both checks: 0.
+The task: put a note in the allowed box.
 
-Here, the signature passes. The policy supplies the block.
-https://github.com/danialranjha/validator-execution-gate-lab/blob/main/artifacts/run.json
+The bad request: put it in the off-limits box instead.
 
-### 3/7
+With approval alone, the note got through. Add a separate rule check, and it stopped. The allowed note still worked.
 
-Reverse the fixture: allowed inbox, forged capability.
+### 3/4
 
-Policy only permits the append; token verification blocks it. A valid inbox twin succeeds in all four modes. The checks enforce different conditions.
+My takeaway for AI agents: plan for the approval step to be wrong.
 
-Table + scope caveat:
-https://github.com/danialranjha/validator-execution-gate-lab/blob/main/visuals/body.png
+A second “yes” is not the useful test. Ask what still stops the action when that “yes” should have been “no.”
 
-### 4/7
+This demo tests a rule in code. It doesn't show how often an AI makes that mistake.
 
-10 scenarios, 4 modes, 44 dispatch attempts. The full gate committed 0/4 out-of-policy attempts and 0/8 invalid-capability attempts. Those groups overlap. These are fixture counts, not estimated attack rates.
-https://github.com/danialranjha/validator-execution-gate-lab/blob/main/artifacts/evidence.md
+### 4/4
 
-### 5/7
+The full explanation, code, and results:
+https://github.com/danialranjha/validator-execution-gate-lab#technical-walkthrough
 
-The motivation is this paper's separation of validator judgment from execution authorization. Its memory-poisoning setup forces bypass with a replacement routine. My harness is not a reproduction of its live-model evaluations.
-https://arxiv.org/html/2609.17648v1
-
-### 6/7
-
-14 tests pass. Removing either gate in a temporary copy makes its critical test fail. Changed text, task binding, malformed capabilities, and replay are checked against actual sink records.
-
-Tests:
-https://github.com/danialranjha/validator-execution-gate-lab/tree/main/tests
-
-### 7/7
-
-Single-process demo, not production isolation.
-
-Reproduce:
-https://github.com/danialranjha/validator-execution-gate-lab
-
-Engineering gate: force approval; require no out-of-scope sink action and a working authorized twin; remove each check separately to prove what it enforces.
+The check to add: force a “yes.” The forbidden action must stop, and the allowed one must still work.
 
 ## LinkedIn post
 
-I built a small authorization test with a validator that always says yes.
+What stops an AI agent when its approval step gets it wrong?
 
-The question was what still prevented an out-of-scope action from reaching the executor's sink.
+I built a small code simulation around that question. No live AI was involved.
 
-I held the proposed action and forced approval constant across four modes: approval only, token only, policy only, and both checks. Every “action” was just a synthetic record appended to an in-memory ledger. No live LLM or external service was involved.
+The task was simple: put a note in the allowed box. I then tried the off-limits box and made the approval step say “yes” anyway.
 
-For a validly signed action targeting a restricted resource, approval-only and token-only each committed one record. Policy-only and the combined gate committed none.
+With approval alone, the note got through.
 
-Then I reversed the problem: a forged capability for an allowed inbox. Policy alone permitted the append; signature verification blocked it. The valid, in-scope twin succeeded in all four modes.
+With a separate rule checking where the note was allowed to go, it stopped. The note for the allowed box still went through.
 
-The trace covers 10 scenarios and 44 dispatch attempts. All 14 tests passed; deliberately removing either gate made its critical test fail.
+My takeaway: when building an agent, test what happens after a bad approval. There needs to be something that can still stop the action.
 
-Run evidence and limitations:
-https://github.com/danialranjha/validator-execution-gate-lab/blob/main/artifacts/evidence.md
+This was a toy example. It tests a rule in code, not how often an AI makes mistakes.
 
-The source idea came from research separating validator judgment from downstream authorization:
-https://arxiv.org/html/2609.17648v1
+I put the technical explanation, research source, code, and full results here:
+https://github.com/danialranjha/validator-execution-gate-lab#technical-walkthrough
 
-My interpretation: inspect the sink as well as the approval. This deterministic harness demonstrates enforcement of a declared policy on designed fixtures. It does not establish model robustness, policy completeness, or production privilege separation.
+The check to add: force a “yes.” The forbidden action must stop, and the allowed one must still work.
 
-Code, exact commands, and visuals:
-https://github.com/danialranjha/validator-execution-gate-lab
+## Editorial notes
 
-The engineering gate I would add: force approval, assert that the out-of-scope action never reaches the sink, require its authorized twin to work, and disable each check separately so the test proves which boundary matters.
+“Box” is the plain-language name for a resource label in the program. Notes are only records in memory. The off-limits example is the recorded `signed_restricted` fixture; the allowed example is `benign_twin`. “Separate rule” refers to the independent policy check. Both policy-only and combined modes give the outcome described. The simulation forces approval; it does not demonstrate a live model being fooled.
+
+The social text deliberately focuses on this one comparison. The README covers the second comparison (forged approval credentials), exact-action binding, replay, test counts, limitations, and source attribution. The four-part thread shares its technical evidence link in the closing post; the mapping below supports the whole thread and LinkedIn draft.
 
 ## Public evidence map
 

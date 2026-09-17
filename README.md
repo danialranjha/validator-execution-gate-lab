@@ -1,10 +1,44 @@
-# The validator approved. Should the action run?
+# It said yes. Was the action actually allowed?
 
-A tiny, dependency-free **authorization experiment** with a deliberately compromised validator, two independent checks, and an inspectable in-memory sink.
+I built a small code simulation with two pretend boxes: one allowed, one off-limits. Then I made the approval step say “yes” to a note for the off-limits box.
 
-**Deterministic fault injection. Zero live-model calls. No external actions.** This is not a prompt-injection benchmark or a production security boundary.
+With approval alone, the note got through. With a separate rule checking where it could go, it stopped. The allowed note still worked.
 
-![A signed restricted action reaches the control sink but is denied by independent policy](visuals/header.svg)
+**No live AI was tested. The notes exist only in memory.** This demonstrates a rule enforced by code, not how often an AI makes mistakes.
+
+![Approval alone lets the forbidden note through; a separate rule stops it](visuals/header.svg)
+
+[Simple diagram](visuals/body.png) · [Post drafts](posts.md) · [Technical walkthrough](#technical-walkthrough)
+
+## Technical walkthrough
+
+The plain-language “boxes” are the `inbox` and `restricted` resource labels. A note is an immutable `Action` with `task_id`, `verb`, `resource`, and `text`. Execution means appending that action to an in-memory list. No real inbox, file operation, or external service is involved.
+
+This experiment separates three predicates that an agent system could otherwise conflate:
+
+1. **Judgment:** did the validator approve? In this experiment the answer is forced to true.
+2. **Capability validity:** is the exact action bound to a valid, unused capability for the trusted task?
+3. **Policy permission:** does a separately supplied allowlist permit that task, verb, and resource?
+
+The first is held constant. The other two are independently enabled and disabled. That gives a four-condition ablation, described below, with actual sink records as the oracle.
+
+### Follow one request through the executor
+
+For `signed_restricted`, the action is `note-task / append_note / restricted / synthetic note`. The test issuer creates a valid HMAC capability for that action, modeling an attacker who possesses the signing key. Validator approval is forced to true.
+
+Signature verification succeeds. The policy lookup fails because the only permitted tuple is `(note-task, append_note, inbox)`. Approval-only and token-only therefore commit the action; policy-only and combined modes do not. That is the causal comparison used in the social diagram.
+
+For `benign_twin`, the resource changes to `inbox` and the capability matches the new action. All modes commit it. This checks that the blocking result is not caused by a broken executor or blanket denial.
+
+The second comparison, `forged_allowed`, reverses the mismatch: the scope is allowed, but the capability signature is invalid. Policy-only commits it; token-enabled modes reject it. This is why the full experiment includes both checks even though the short social post tells only the first story.
+
+### Exact capability validation and commit order
+
+The capability payload contains version, action fields, and a nonce. Canonical JSON uses sorted keys, compact separators, and ASCII escaping before HMAC-SHA256. Verification rejects unexpected schema fields, wrong types, malformed values, invalid signatures, a task different from the executor's trusted task, a substituted action, and previously consumed nonces. The MAC comparison uses `hmac.compare_digest`.
+
+The gate evaluates token and policy decisions for diagnostics even when a check is disabled. It appends only when explicit boolean approval and every enabled check succeed. A nonce is consumed only when a token-enforced dispatch commits. A denied request does not consume it. This ordering is single-process and sequential; it supplies no atomicity guarantee for concurrent workers.
+
+Fixture labels and expected counts exist only in scoring. The policy function accepts only an action and performs a frozen allowlist lookup. The same builder authored both the policy and the fixtures, so separation prevents direct label leakage without establishing independent policy correctness.
 
 ## Hypothesis
 
@@ -80,11 +114,11 @@ Across all fixtures, the full gate committed **0 of 4 out-of-policy attempts** a
 - [Human-readable evidence](artifacts/evidence.md): counts, interpretation, denominators, and limits.
 - [Mutation evidence](artifacts/mutation-checks.json): targeted failures after each gate is removed.
 - [Test execution evidence](artifacts/tests.json).
-- [Body visual](visuals/body.svg) · [5:2 header](visuals/header.svg).
+- [Simple body visual](visuals/body.svg) · [5:2 header](visuals/header.svg) · [Technical diagram](visuals/technical-body.svg).
 - [HTML explainer](visuals/explainer.html): download/open locally for selectable text and readable diagrams. GitHub displays its source, not a hosted page.
 - [Publication drafts and evidence map](posts.md). Social posts were not published.
 
-![The two gate ablations and benign twin](visuals/body.svg)
+![The technical ablation table and benign twin](visuals/technical-body.svg)
 
 ## Source versus this experiment
 
