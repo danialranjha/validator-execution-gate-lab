@@ -1,6 +1,6 @@
 # AI agent verifier compromised. What stops execution?
 
-An AI agent may append notes to `inbox`, but not to `restricted`. Assume an adversary tricks its verifier agent—for example, through prompt injection—into approving a write to `restricted` and granting a valid signed approval. The signature passes verification, but the executor's independent permission policy still says **only `inbox` is allowed**. With that policy enforced, the restricted write is blocked; a valid write to `inbox` still succeeds.
+Let's say we want an AI agent that can append notes to `inbox`, but not to a section labeled `restricted`. Assume an adversary tricks its verifier agent—for example, through prompt injection—into approving a write to `restricted` and granting a valid signed approval. The signature passes verification, but the executor's independent permission policy still says **only `inbox` is allowed**. With that policy enforced, the restricted write is blocked; a valid write to `inbox` still succeeds.
 
 This experiment asks: **after the verifier has been compromised, does the execution layer still enforce the task's permissions?**
 
