@@ -4,7 +4,7 @@ An AI agent can approve an action that its execution policy should reject. This 
 
 The simulated request writes a note to a restricted resource. Approval-only execution accepts it. An independent permission check blocks it while still allowing the authorized request.
 
-**No live AI was tested. Actions are recorded only in memory.** The experiment measures enforcement of a declared policy, not how often a model approves the wrong action.
+The experiment measures enforcement of a declared policy, not how often a model approves the wrong action.
 
 ![AI agent approval alone permits an unauthorized write; an independent permission check blocks execution](visuals/header.svg)
 
