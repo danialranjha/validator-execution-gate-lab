@@ -1,12 +1,12 @@
-# AI agent approval isn't permission
+# AI agent verifier compromised. What stops execution?
 
-An AI agent can approve an action that its execution policy should reject. This experiment tests what the execution gate enforces when approval is forced to succeed.
+An AI agent may append notes to `inbox`, but not to `restricted`. Assume an adversary tricks its verifier agent—for example, through prompt injection—into approving a write to `restricted` and granting a valid signed approval. The signature passes verification, but the executor's independent permission policy still says **only `inbox` is allowed**. With that policy enforced, the restricted write is blocked; a valid write to `inbox` still succeeds.
 
-The simulated request writes a note to a restricted resource. Approval-only execution accepts it. An independent permission check blocks it while still allowing the authorized request.
+This experiment asks: **after the verifier has been compromised, does the execution layer still enforce the task's permissions?**
 
 The experiment measures enforcement of a declared policy, not how often a model approves the wrong action.
 
-![AI agent approval alone permits an unauthorized write; an independent permission check blocks execution](visuals/header.svg)
+![Assumed compromised AI agent verifier grants signed approval; the independent inbox-only policy blocks the restricted write](visuals/header.svg)
 
 [Execution diagram](visuals/body.png) · [Post drafts](posts.md) · [Technical walkthrough](#technical-walkthrough)
 
@@ -21,6 +21,26 @@ This experiment separates three predicates that an agent system could otherwise 
 3. **Policy permission:** does a separately supplied allowlist permit that task, verb, and resource?
 
 The first is held constant. The other two are independently enabled and disabled. That gives a four-condition ablation, described below, with actual sink records as the oracle.
+
+### The assumed compromise and the surviving boundary
+
+We simulate the state after that compromise: approval is forced to yes, and a test issuer signs the restricted request with a synthetic key. No live verifier agent is attacked, and no prompt-injection or agent-to-signer workflow is implemented. The assumed attack motivates the test; the measured result is downstream enforcement.
+
+Here, “verifier agent” means the component judging whether to approve an action (called the validator in the code). It is distinct from cryptographic signature verification, which still works correctly. The attacker is assumed to obtain a valid signed approval; the executor and its independent policy remain trusted.
+
+```mermaid
+flowchart TD
+    A["Adversary: hypothetical prompt injection"] --> B["Verifier agent: assumed compromised"]
+    B --> C["Forced YES + valid signed request: write to restricted"]
+    C --> D["Signature verification passes"]
+    D --> E["Without permission policy: restricted write executes"]
+    D --> F["Independent executor policy: only inbox is allowed"]
+    F -->|restricted| G["Restricted write blocked"]
+    H["Control: approved, validly signed write to inbox"] --> F
+    F -->|inbox| I["Inbox write allowed"]
+```
+
+The two policy outcomes depend on the requested resource: `restricted` is denied, while `inbox` is permitted. The policy does not accept the compromised verifier's approval as authority to expand the task's permissions.
 
 ### Follow one request through the executor
 

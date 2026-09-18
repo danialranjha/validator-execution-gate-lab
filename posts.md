@@ -1,64 +1,64 @@
 # Publication drafts
 
-Drafts only; not posted. Intended audience: technical people who build or use AI agents. Use the sketch-style header for the opening post and the body diagram for the execution-gate example. The full technical walkthrough lives in the README.
+Drafts only; not posted. Intended audience: technical people who build or use AI agents. Header and body diagrams show the assumed verifier compromise, the signed restricted request, and the independent execution policy.
 
 ## X thread
 
 ### 1/4
 
-Your AI agent approved the action. Does it have permission to execute it?
+An AI agent may write to inbox, not restricted.
 
-I built a small simulation to test the execution gate after a forced approval. No live model calls.
+Assume prompt injection tricks its verifier agent into granting signed approval to write to restricted. What still stops execution?
+
+I simulated that starting point: forced approval + a valid signature.
 
 ### 2/4
 
-The request: write a note to a restricted resource.
+The signature passes. The destination is still forbidden.
 
-Approval-only execution let it through. An independent permission check blocked it. The authorized write still succeeded.
+Without a permission policy, the signed write to restricted executes. With an independent inbox-only policy, it is blocked.
 
-Same request. Same approval. Different execution gate.
+A valid, approved write to inbox still succeeds.
 
 ### 3/4
 
-Approval and permission answer different questions.
+Assume the AI agent's verifier is compromised; the executor and its policy remain trusted.
 
-Approval says “go ahead.” A permission check asks whether this action is allowed for this task and resource.
+Signed approval cannot expand the policy's permissions.
 
-In this demo, that independent check stopped the unauthorized action.
+This simulation tests enforcement after that assumed compromise. It does not demonstrate a live prompt-injection attack.
 
 ### 4/4
+
+For AI agent builders: force approval of a signed, unauthorized action. Check that execution blocks it and still permits an authorized action.
+
+Code, results, and technical walkthrough:
+https://github.com/danialranjha/validator-execution-gate-lab#technical-walkthrough
+
+## LinkedIn post
+
+An AI agent may write notes to inbox, but not to restricted. Assume an adversary tricks its verifier agent—through prompt injection, for example—into granting valid signed approval for a write to restricted. The signature is valid. Does the write execute?
+
+Without an independent permission policy, yes. With an inbox-only policy enforced by the executor, no. The signed approval cannot expand the task's permissions.
+
+That's the scenario I simulated: start after the verifier is assumed compromised, force approval to yes, and supply a valid signed request to the forbidden resource.
+
+The signature check passed. The permission policy blocked the restricted write. A valid, approved write to inbox still succeeded.
+
+The verifier's judgment has failed; cryptographic verification has not. The executor and its permission policy remain trusted.
+
+For agent builders, this gives a concrete regression check: force approval of a signed, unauthorized action. Verify execution blocks it while an authorized action still works.
+
+This is a code simulation, not a demonstrated prompt-injection attack. It uses forced approval and a synthetic signing key, with writes recorded in memory; no live verifier agent was tested.
 
 Code, results, and the technical walkthrough:
 https://github.com/danialranjha/validator-execution-gate-lab#technical-walkthrough
 
-Regression check: force approval of an unauthorized action. Verify execution is blocked and the authorized case still succeeds.
-
-## LinkedIn post
-
-Your AI agent approved the action. Does it have permission to execute it?
-
-I built a small simulation of an AI agent's execution gate. I forced the approval step to accept a request to write a note to a restricted resource.
-
-With approval as the only check, the unauthorized write went through.
-
-With an independent permission check at execution, it was blocked. The authorized write still succeeded.
-
-The request even had a valid signature. In this case, the signature check passed; the permission policy supplied the block.
-
-My takeaway for agent builders: test the execution boundary after approval has already failed. Permission enforcement needs to hold even when the approval step says yes.
-
-This was a code simulation with actions recorded in memory. No live model was tested.
-
-The README explains the threat model, signed requests, policy checks, and full results:
-https://github.com/danialranjha/validator-execution-gate-lab#technical-walkthrough
-
-The regression check: force approval of an unauthorized action. Verify execution is blocked and the authorized case still succeeds.
-
 ## Editorial notes
 
-The request targets the program's `restricted` resource label. A “write” means appending a synthetic action to an in-memory ledger; it does not operate on real files. The unauthorized example is `signed_restricted`; the authorized example is `benign_twin`. “Permission check” means the independent policy. Policy-only and combined modes both give the outcome described. The simulation forces approval and does not show a live model being fooled.
+Lead with the concrete inbox/restricted example and the assumed verifier compromise. “Verifier agent” refers to the approval component called the validator in code; do not confuse it with cryptographic token verification. “Signed approval” is shorthand for the starting state of forced boolean approval plus a valid action-bound capability. The fixture does not implement an agent issuing tokens or an adversary obtaining them through prompt injection. It models a synthetic signing-key holder; the hypothetical attack is motivation, not an observed result.
 
-Use established terms such as AI agent, approval, permission, signed request, and execution gate. Name the topic in the first line of each standalone post and each image headline. Keep the explanation concise without substituting vague pronouns or unrelated everyday analogies for the mechanism. The thread's closing link and evidence map support its claims; implementation detail remains in the README.
+The restricted example is `signed_restricted`, the inbox control is `benign_twin`. Writes append synthetic actions to memory. Both policy-only and combined modes block the signed restricted request. The executor and policy are trusted assumptions. Keep established AI-agent terminology, clear causal comparisons, and no disclaimer footers on images.
 
 ## Public evidence map
 

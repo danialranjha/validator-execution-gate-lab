@@ -1,71 +1,71 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI agent approval isn't permission</title><style>*{box-sizing:border-box}body{margin:0;background:white;color:#242424;font:20px/1.6 system-ui,sans-serif}main{max-width:1400px;margin:auto;padding:24px}svg{display:block;width:100%;height:auto}section{max-width:850px;padding:20px 32px;margin:auto}a{color:#315f8c}.visual{margin:0 0 30px}@media(max-width:650px){main{padding:8px}section{padding:12px}.visual{overflow:auto}.visual svg{min-width:750px}}@media print{.visual{break-inside:avoid}}</style><main><div class="visual"><svg xmlns="http://www.w3.org/2000/svg" width="1500" height="600" viewBox="0 0 1500 600" role="img" aria-label="AI agent execution: the same signed request and forced approval permit an unauthorized write in the control; an independent permission check blocks execution."><rect width="1500" height="600" fill="white"/>
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI agent verifier compromised. What stops execution?</title><style>*{box-sizing:border-box}body{margin:0;background:white;color:#242424;font:20px/1.6 system-ui,sans-serif}main{max-width:1400px;margin:auto;padding:24px}svg{display:block;width:100%;height:auto}section{max-width:850px;padding:20px 32px;margin:auto}a{color:#315f8c}.visual{margin:0 0 30px}@media(max-width:650px){main{padding:8px}section{padding:12px}.visual{overflow:auto}.visual svg{min-width:750px}}@media print{.visual{break-inside:avoid}}</style><main><div class="visual"><svg xmlns="http://www.w3.org/2000/svg" width="1500" height="600" viewBox="0 0 1500 600" role="img" aria-label="Assume an AI agent&#x27;s verifier is compromised: signed approval for restricted passes signature verification, but an independent inbox-only policy blocks execution."><rect width="1500" height="600" fill="white"/>
 <style>text{font-family:Chalkboard,"Comic Sans MS",cursive}.small{font-family:Arial,Helvetica,sans-serif}</style>
-<text x="62" y="93" font-size="58" fill="#242424" class="pen">AI agent approval isn&#x27;t permission</text>
-<text x="67" y="147" font-size="28" fill="#626262" class="pen">Same signed request. Same forced approval.</text>
-<path d="M 69 208 Q 152.10000000000002 203 252 207 L 250 306 Q 150.25 309 65 305 Z" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M 72 211 Q 168.75 207 254 205 M 255 209 L 253 303" stroke="#242424" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="126" y="271" font-size="40" fill="#242424" class="pen">YES</text>
-<path d="M282 259 Q656.0 254 1030 260" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M1014 249 L1030 260 L1014 271" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="487" y="242" font-size="30" fill="#242424" class="pen">Approval only</text>
-<path d="M 1062 208 Q 1230.2 203 1430 207 L 1428 306 Q 1226.5 309 1058 305 Z" stroke="#ad4239" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M 1065 211 Q 1263.5 207 1432 205 M 1433 209 L 1431 303" stroke="#ad4239" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="1090" y="250" font-size="28" fill="#242424" class="pen">Restricted resource</text>
-<text x="1130" y="285" font-size="27" fill="#ad4239" class="pen">write accepted</text>
-<path d="M 69 377 Q 152.10000000000002 372 252 376 L 250 475 Q 150.25 478 65 474 Z" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M 72 380 Q 168.75 376 254 374 M 255 378 L 253 472" stroke="#242424" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="126" y="440" font-size="40" fill="#242424" class="pen">YES</text>
-<path d="M282 425 Q391.0 420 500 426" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M484 415 L500 426 L484 437" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="306" y="394" font-size="23" fill="#315f8c" class="pen">Check permissions</text>
-<path d="M 533 372 Q 680.5 367 856 371 L 854 480 Q 677.25 483 529 479 Z" stroke="#315f8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M 536 375 Q 709.75 371 858 369 M 859 373 L 857 477" stroke="#315f8c" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="554" y="414" font-size="29" fill="#242424" class="pen">Permission check</text>
-<text x="652" y="454" font-size="31" fill="#315f8c" class="pen">DENY</text>
-<path d="M888 425 Q941.0 420 994 426" stroke="#315f8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M978 415 L994 426 L978 437" stroke="#315f8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M988 407 L1013 443 M1012 408 L988 443" stroke="#ad4239" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="1080" y="439" font-size="37" fill="#315f8c" class="pen">write blocked</text>
-</svg></div><section><p>I simulated an AI agent execution gate and forced approval of a write to a restricted resource.</p><p>Approval-only execution accepted the unauthorized request. An independent permission check blocked it while allowing the authorized request.</p><p>This is a small code simulation. No live AI was tested.</p></section><div class="visual"><svg xmlns="http://www.w3.org/2000/svg" width="1400" height="960" viewBox="0 0 1400 960" role="img" aria-label="AI agents need permission checks: a signed request to a restricted resource executes with approval alone; independent policy blocks it and permits an authorized request."><rect width="1400" height="960" fill="white"/>
+<text x="58" y="80" font-size="48" fill="#242424" class="pen">AI agent verifier compromised. What stops execution?</text>
+<text x="62" y="134" font-size="29" fill="#626262" class="pen">Allowed: write to inbox. Attacker requests: write to restricted.</text>
+<text x="62" y="199" font-size="25" fill="#ad4239" class="pen">Assume prompt injection succeeds</text>
+<path d="M 64 233 Q 220.70000000000002 228 407 232 L 405 421 Q 217.25 424 60 420 Z" stroke="#ad4239" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M 67 236 Q 251.75000000000003 232 409 230 M 410 234 L 408 418" stroke="#ad4239" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="84" y="273" font-size="29" fill="#ad4239" class="pen">Compromised verifier</text>
+<text x="89" y="319" font-size="32" fill="#242424" class="pen">APPROVE + SIGN</text>
+<text x="88" y="371" font-size="28" fill="#242424" class="pen">write to restricted</text>
+<path d="M423 325 Q449.5 320 476 326" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M460 315 L476 326 L460 337" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M 496 233 Q 663.74 228 863 232 L 861 421 Q 660.05 424 492 420 Z" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M 499 236 Q 696.95 232 865 230 M 866 234 L 864 418" stroke="#242424" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="521" y="276" font-size="29" fill="#242424" class="pen">Valid signed request</text>
+<text x="527" y="325" font-size="29" fill="#242424" class="pen">Signature check:</text>
+<text x="636" y="375" font-size="34" fill="#242424" class="pen">PASS</text>
+<path d="M883 325 L932 325 L932 253 L991 253" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M976 243 L991 253 L976 263" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="1014" y="238" font-size="29" fill="#242424" class="pen">No permission policy</text>
+<text x="1014" y="287" font-size="30" fill="#ad4239" class="pen">Restricted write executes</text>
+<path d="M932 325 L932 411 L991 411" stroke="#315f8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M976 401 L991 411 L976 421" stroke="#315f8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="1014" y="362" font-size="29" fill="#315f8c" class="pen">Independent policy:</text>
+<text x="1014" y="402" font-size="32" fill="#315f8c" class="pen">inbox only</text>
+<text x="1014" y="454" font-size="30" fill="#315f8c" class="pen">Restricted write blocked</text>
+<path d="M70 536 L85 551 L112 520" stroke="#315f8c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="136" y="550" font-size="30" fill="#315f8c" class="pen">Control: a valid, approved write to inbox still succeeds.</text>
+</svg></div><section><p>An AI agent may write notes to inbox, but not to restricted. Assume an adversary tricks its verifier agent through prompt injection into granting signed approval to write to restricted. The signature passes; the independent inbox-only policy still blocks the write.</p><p>Without that policy, the restricted write executes. With it, the restricted write is blocked while a valid, approved inbox write still succeeds.</p><p>The simulation starts after the assumed compromise: forced approval and a synthetic signing key supply the valid signed request. No live verifier or prompt-injection attack was tested. The executor and policy remain trusted.</p></section><div class="visual"><svg xmlns="http://www.w3.org/2000/svg" width="1400" height="960" viewBox="0 0 1400 960" role="img" aria-label="Assumed prompt injection compromises the AI agent verifier. It approves and signs a restricted write; signature verification passes. Without policy it executes; the trusted inbox-only policy blocks it."><rect width="1400" height="960" fill="white"/>
 <style>text{font-family:Chalkboard,"Comic Sans MS",cursive}.small{font-family:Arial,Helvetica,sans-serif}</style>
-<text x="65" y="93" font-size="53" fill="#242424" class="pen">AI agents need permission checks</text>
-<text x="69" y="146" font-size="27" fill="#626262" class="pen">A signed request targets a restricted resource. Force approval to YES.</text>
-<text x="69" y="227" font-size="34" fill="#242424" class="pen">1. Approval only</text>
-<path d="M72 240 Q220 246 365 238" stroke="#ad4239" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M 101 292 Q 172.60000000000002 287 259 291 L 257 420 Q 171.0 423 97 419 Z" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M 104 295 Q 187.0 291 261 289 M 262 293 L 260 417" stroke="#242424" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="141" y="342" font-size="38" fill="#242424" class="pen">YES</text>
-<text x="123" y="381" font-size="24" fill="#242424" class="pen">approval</text>
-<path d="M295 357 Q597.5 352 900 358" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M884 347 L900 358 L884 369" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="464" y="328" font-size="30" fill="#ad4239" class="pen">unauthorized write</text>
-<path d="M 944 291 Q 1103.92 286 1294 290 L 1292 449 Q 1100.4 452 940 448 Z" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M 947 294 Q 1135.6 290 1296 288 M 1297 292 L 1295 446" stroke="#242424" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="972" y="267" font-size="27" fill="#242424" class="pen">Restricted resource</text>
-<path d="M 1060 314 Q 1108.6 309 1168 313 L 1166 413 Q 1107.5 416 1056 412 Z" stroke="#ad4239" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M 1063 317 Q 1118.5 313 1170 311 M 1171 315 L 1169 410" stroke="#ad4239" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M1080 337 L1146 338 M1080 357 L1139 359 M1080 378 L1148 379" stroke="#ad4239" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="1000" y="486" font-size="29" fill="#ad4239" class="pen">write accepted</text>
-<text x="69" y="566" font-size="34" fill="#242424" class="pen">2. Enforce permissions</text>
-<path d="M72 580 Q287 585 470 577" stroke="#315f8c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M 101 632 Q 172.60000000000002 627 259 631 L 257 760 Q 171.0 763 97 759 Z" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M 104 635 Q 187.0 631 261 629 M 262 633 L 260 757" stroke="#242424" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="141" y="682" font-size="38" fill="#242424" class="pen">YES</text>
-<text x="123" y="721" font-size="24" fill="#242424" class="pen">approval</text>
-<path d="M295 696 Q376.0 691 457 697" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M441 686 L457 697 L441 708" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M 491 619 Q 633.9 614 804 618 L 802 776 Q 630.75 779 487 775 Z" stroke="#315f8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M 494 622 Q 662.25 618 806 616 M 807 620 L 805 773" stroke="#315f8c" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="513" y="676" font-size="28" fill="#242424" class="pen">Permission check</text>
-<text x="596" y="728" font-size="36" fill="#315f8c" class="pen">DENY</text>
-<path d="M832 696 Q873.5 691 915 697" stroke="#315f8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M899 686 L915 697 L899 708" stroke="#315f8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M908 678 L933 714 M932 679 L908 714" stroke="#ad4239" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M 978 619 Q 1121.82 614 1293 618 L 1291 776 Q 1118.65 779 974 775 Z" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<path d="M 981 622 Q 1150.35 618 1295 616 M 1296 620 L 1294 773" stroke="#242424" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="992" y="597" font-size="27" fill="#242424" class="pen">Restricted resource</text>
-<text x="1075" y="710" font-size="36" fill="#626262" class="pen">empty</text>
-<text x="826" y="823" font-size="30" fill="#315f8c" class="pen">write blocked</text>
-<path d="M76 887 L91 903 L116 872" stroke="#315f8c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-<text x="140" y="904" font-size="32" fill="#315f8c" class="pen">The authorized request still executes.</text>
-</svg></div><section><p><a href="https://github.com/danialranjha/validator-execution-gate-lab#technical-walkthrough">Read the technical walkthrough, code, and results →</a></p><p>Regression check: force approval of an unauthorized action. Verify execution is blocked and the authorized case still succeeds.</p></section></main></html>
+<text x="58" y="78" font-size="48" fill="#242424" class="pen">Assume the AI agent verifier is compromised</text>
+<text x="61" y="136" font-size="29" fill="#626262" class="pen">Task permission: append notes to inbox. Never write to restricted.</text>
+<path d="M 64 210 Q 211.96 205 388 209 L 386 351 Q 208.70000000000002 354 60 350 Z" stroke="#ad4239" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M 67 213 Q 241.3 209 390 207 M 391 211 L 389 348" stroke="#ad4239" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="85" y="251" font-size="32" fill="#ad4239" class="pen">Adversary</text>
+<text x="84" y="290" font-size="28" fill="#242424" class="pen">Prompt injection</text>
+<text x="84" y="327" font-size="24" fill="#ad4239" class="pen">(assumed successful)</text>
+<path d="M405 278 Q432.0 273 459 279" stroke="#ad4239" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M443 268 L459 279 L443 290" stroke="#ad4239" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M 480 210 Q 653.26 205 859 209 L 857 351 Q 649.45 354 476 350 Z" stroke="#ad4239" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M 483 213 Q 687.55 209 861 207 M 862 211 L 860 348" stroke="#ad4239" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="501" y="251" font-size="29" fill="#ad4239" class="pen">Compromised verifier</text>
+<text x="501" y="298" font-size="31" fill="#242424" class="pen">APPROVE + SIGN</text>
+<text x="501" y="330" font-size="25" fill="#242424" class="pen">unauthorized request</text>
+<path d="M879 278 Q905.0 273 931 279" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M915 268 L931 279 L915 290" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M 951 210 Q 1127.48 205 1337 209 L 1335 351 Q 1123.6 354 947 350 Z" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M 954 213 Q 1162.4 209 1339 207 M 1340 211 L 1338 348" stroke="#242424" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="973" y="251" font-size="28" fill="#242424" class="pen">Valid signed request</text>
+<text x="973" y="295" font-size="30" fill="#242424" class="pen">append_note</text>
+<text x="973" y="331" font-size="26" fill="#242424" class="pen">destination: restricted</text>
+<path d="M1144 368 L1144 412 L700 412 L700 446" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M690 431 L700 446 L710 431" stroke="#242424" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="425" y="488" font-size="34" fill="#242424" class="pen">Signature verification: PASS</text>
+<path d="M700 505 L700 535 L350 535 L350 565" stroke="#ad4239" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M340 550 L350 565 L360 550" stroke="#ad4239" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M700 535 L1050 535 L1050 565" stroke="#315f8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M1040 550 L1050 565 L1060 550" stroke="#315f8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M 70 589 Q 321.0 584 618 588 L 616 757 Q 315.5 760 66 756 Z" stroke="#ad4239" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M 73 592 Q 370.5 588 620 586 M 621 590 L 619 754" stroke="#ad4239" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="101" y="632" font-size="34" fill="#242424" class="pen">No permission policy</text>
+<text x="101" y="692" font-size="33" fill="#ad4239" class="pen">Restricted write executes</text>
+<path d="M 731 589 Q 1009.14 584 1338 588 L 1336 757 Q 1003.05 760 727 756 Z" stroke="#315f8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M 734 592 Q 1063.95 588 1340 586 M 1341 590 L 1339 754" stroke="#315f8c" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="758" y="631" font-size="31" fill="#315f8c" class="pen">Independent policy: inbox only</text>
+<text x="758" y="690" font-size="34" fill="#315f8c" class="pen">Restricted write blocked</text>
+<text x="758" y="732" font-size="23" fill="#626262" class="pen">Executor + policy remain trusted</text>
+<path d="M74 844 L90 861 L118 829" stroke="#315f8c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="143" y="862" font-size="30" fill="#315f8c" class="pen">Control: valid signed approval + write to inbox</text>
+<text x="143" y="908" font-size="30" fill="#315f8c" class="pen">The same policy permits the authorized write.</text>
+</svg></div><section><p><a href="https://github.com/danialranjha/validator-execution-gate-lab#technical-walkthrough">Read the technical walkthrough, code, and results →</a></p></section></main></html>
